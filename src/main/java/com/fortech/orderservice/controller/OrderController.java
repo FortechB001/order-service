@@ -57,8 +57,6 @@ public class OrderController {
         ResponseEntity<?> responseEntity = restTemplate.exchange("http://product-service/product/all",
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<Object>>() {
                 });
-
-        System.out.println("response: " + responseEntity);
         return responseEntity;
     }
 }
