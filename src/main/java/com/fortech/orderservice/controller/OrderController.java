@@ -37,7 +37,7 @@ public class OrderController {
                                          @RequestParam(name = "daysToCustomer") Integer daysToCustomer) {
 
         if (orderService.createOrderEntry(productId, howMany) != null) {
-            String url = "http://stock-service/stock/update?productId=" + productId + "&howMany=" + howMany;
+            String url = "http://STOCK-SERV/stock/update?productId=" + productId + "&howMany=" + howMany;
             ResponseEntity<?> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, null,
                     new ParameterizedTypeReference<ResponseEntity>() {
                     });
@@ -54,7 +54,7 @@ public class OrderController {
     @GetMapping(value = "/testing")
     public ResponseEntity<?> testRestTemplate() {
 
-        ResponseEntity<?> responseEntity = restTemplate.exchange("http://product-service/product/all",
+        ResponseEntity<?> responseEntity = restTemplate.exchange("http://PRODUCT-SERV/product/all",
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<Object>>() {
                 });
         return responseEntity;
